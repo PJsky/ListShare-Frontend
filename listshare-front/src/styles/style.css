@@ -1,0 +1,11 @@
+*{
+    padding: 0;
+    margin:0;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+
+@import "./components-styles/shared.css";
+@import "./components-styles/mainpage/mainpage.css";
