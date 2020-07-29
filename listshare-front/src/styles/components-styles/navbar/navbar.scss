@@ -33,9 +33,11 @@
             .navigation-list-item{
                 margin: 0 3vw;
                 font-size: 1.3rem;
+                color:black;
                 &:hover{
                     cursor: pointer;
                     border-bottom: 1px solid black;
+                    color:black;
                 }
             }
         }

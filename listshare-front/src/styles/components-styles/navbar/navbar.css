@@ -57,10 +57,12 @@
 .navbar-container .navigation .navigation-list .navigation-list-item {
   margin: 0 3vw;
   font-size: 1.3rem;
+  color: black;
 }
 
 .navbar-container .navigation .navigation-list .navigation-list-item:hover {
   cursor: pointer;
   border-bottom: 1px solid black;
+  color: black;
 }
 /*# sourceMappingURL=navbar.css.map */
