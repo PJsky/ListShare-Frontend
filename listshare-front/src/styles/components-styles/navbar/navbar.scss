@@ -1,0 +1,36 @@
+@import '../shared.scss';
+
+.navbar-container{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    height:60px;
+    background: $crayon-pale-yellow;
+
+    .navbar-listshare{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1{
+            margin:auto 8vw;
+        }
+    }
+
+    .navigation{
+        margin:auto 8vw;
+        .navigation-list{
+            display: flex;
+            justify-content: space-evenly;
+            width: 100%;
+            list-style: none;
+            .navigation-list-item{
+                margin: 0 3vw;
+                font-size: 1.3rem;
+                &:hover{
+                    cursor: pointer;
+                    border-bottom: 1px solid black;
+                }
+            }
+        }
+    }
+}

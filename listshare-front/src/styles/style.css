@@ -6,6 +6,9 @@
   a{
     text-decoration: none;
   }
-
+  
+  
 @import "./components-styles/shared.css";
+@import "./components-styles/navbar/navbar.css";
 @import "./components-styles/mainpage/mainpage.css";
+

@@ -1,5 +1,13 @@
+@import "../shared.scss";
+
+body{
+    background: $background-color;
+    }
+
 .mainpage-container{
-    background: black;
+    background: $crayon-pale-yellow;
+    color: black;
+    text-align: center;
     width: 40vw;
     height: 40vh;
     margin: auto;

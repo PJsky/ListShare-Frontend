@@ -1,0 +1,54 @@
+.navbar-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  height: 60px;
+  background: #ffcc6b;
+}
+
+.navbar-container .navbar-listshare {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.navbar-container .navbar-listshare h1 {
+  margin: auto 8vw;
+}
+
+.navbar-container .navigation {
+  margin: auto 8vw;
+}
+
+.navbar-container .navigation .navigation-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+  list-style: none;
+}
+
+.navbar-container .navigation .navigation-list .navigation-list-item {
+  margin: 0 3vw;
+  font-size: 1.3rem;
+}
+
+.navbar-container .navigation .navigation-list .navigation-list-item:hover {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+/*# sourceMappingURL=navbar.css.map */

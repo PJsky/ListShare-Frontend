@@ -1,5 +1,11 @@
+body {
+  background: #343434;
+}
+
 .mainpage-container {
-  background: black;
+  background: #ffcc6b;
+  color: black;
+  text-align: center;
   width: 40vw;
   height: 40vh;
   margin: auto;
