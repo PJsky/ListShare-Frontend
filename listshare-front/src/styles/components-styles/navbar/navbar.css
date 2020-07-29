@@ -25,6 +25,18 @@
 
 .navbar-container .navbar-listshare h1 {
   margin: auto 8vw;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.navbar-container .navbar-listshare h1:hover {
+  cursor: pointer;
 }
 
 .navbar-container .navigation {

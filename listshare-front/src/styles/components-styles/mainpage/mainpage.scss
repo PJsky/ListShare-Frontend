@@ -5,6 +5,11 @@ body{
     }
 
 .mainpage-container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
     background: $crayon-pale-yellow;
     color: black;
     text-align: center;
@@ -12,4 +17,18 @@ body{
     height: 40vh;
     margin: auto;
     margin-top:20%;
+    
+    .create-list-button{
+        width: 100px;
+        padding:8px;
+        margin: 0 auto;
+        background: $background-color;
+        border: 0px;
+        color: $crayon-pale-yellow;
+
+        &:hover{
+            cursor: pointer;
+            background: $background-lighter-color;
+        }
+    }
 }

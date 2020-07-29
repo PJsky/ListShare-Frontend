@@ -3,6 +3,16 @@ body {
 }
 
 .mainpage-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   background: #ffcc6b;
   color: black;
   text-align: center;
@@ -10,5 +20,19 @@ body {
   height: 40vh;
   margin: auto;
   margin-top: 20%;
+}
+
+.mainpage-container .create-list-button {
+  width: 100px;
+  padding: 8px;
+  margin: 0 auto;
+  background: #343434;
+  border: 0px;
+  color: #ffcc6b;
+}
+
+.mainpage-container .create-list-button:hover {
+  cursor: pointer;
+  background: #464646;
 }
 /*# sourceMappingURL=mainpage.css.map */
