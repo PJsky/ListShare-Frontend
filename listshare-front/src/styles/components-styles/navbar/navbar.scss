@@ -12,13 +12,19 @@
         flex-direction: column;
         justify-content: center;
         h1{
-            margin:auto 8vw;
-            -webkit-user-select: none; /* Safari */        
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* IE10+/Edge */
-            user-select: none; /* Standard */
-            &:hover{
-                cursor: pointer;
+            a{
+                color:black;
+                margin:auto 8vw;
+                -webkit-user-select: none; /* Safari */        
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+                &:hover{
+                    cursor: pointer;
+                }
+                &:active{
+                    color:black;
+                }
             }
         }
     }
@@ -31,13 +37,15 @@
             width: 100%;
             list-style: none;
             .navigation-list-item{
-                margin: 0 3vw;
-                font-size: 1.3rem;
-                color:black;
-                &:hover{
-                    cursor: pointer;
-                    border-bottom: 1px solid black;
+                a{ 
+                    margin: 0 3vw;
+                    font-size: 1.3rem;
                     color:black;
+                    &:hover{
+                        cursor: pointer;
+                        border-bottom: 1px solid black;
+                        color:black;
+                    }
                 }
             }
         }

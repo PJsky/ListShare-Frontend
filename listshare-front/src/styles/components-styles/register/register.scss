@@ -1,0 +1,64 @@
+@import "../shared.scss";
+
+.register-container{
+
+    display: flex;
+    flex-direction: column;
+    background: $crayon-pale-yellow;
+    color: black;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    margin-top:20vh;
+    padding: 32px 48px;
+    h2{
+        font-size: 2.5em;
+        padding-bottom: 2.5vw;
+    }
+
+    // .register-form-row{
+    //     display:flex;
+    //     justify-content: center;
+    // }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .register-email-input, .register-password-input, .register-button, .register-email-label, .register-password-label{
+        color:black;
+        font-size: 1.5em;
+        margin: 4px 0;
+        &:focus{
+            outline:none;
+        }
+    }
+
+    .register-email-input, .register-password-input{
+        width: 260px;
+        background: $crayon-pale-lighter-yellow;
+        text-align: center;
+    }
+    .register-email-label, .register-password-label{
+        text-align: start;
+        margin-right: 4px;
+    }
+
+    .register-button{
+        width: 150px;
+        margin:auto;
+        margin-top: 2.5vw;
+        padding: 8px;
+        background: $background-color;
+        color: $crayon-pale-lighter-yellow;
+        border: 2px solid $background-lighter-color;
+        &:hover{
+            cursor: pointer;
+            background: $background-lighter-color;
+        }
+        &:focus{
+            border: 2px solid $background-color;
+            background: $background-color;
+        }
+    }
+}

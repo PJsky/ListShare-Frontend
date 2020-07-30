@@ -1,14 +1,17 @@
 *{
     padding: 0;
     margin:0;
+    font-family: Ranchers;
   }
   
   a{
     text-decoration: none;
   }
   
-  
+@import "./fonts.css";  
 @import "./components-styles/shared.css";
 @import "./components-styles/navbar/navbar.css";
 @import "./components-styles/mainpage/mainpage.css";
+@import "./components-styles/login/login.css";
+@import "./components-styles/register/register.css";
 

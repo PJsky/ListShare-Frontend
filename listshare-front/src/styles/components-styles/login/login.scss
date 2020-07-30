@@ -1,0 +1,65 @@
+@import "../shared.scss";
+
+.login-container{
+
+    display: flex;
+    flex-direction: column;
+    background: $crayon-pale-yellow;
+    color: black;
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+    margin-top:20vh;
+    padding: 32px 48px;
+    h2{
+        font-size: 2.5em;
+        padding-bottom: 2.5vw;
+    }
+
+    // .login-form-row{
+    //     display:flex;
+    //     justify-content: center;
+    // }
+    form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-email-input, .login-password-input, .login-button, .login-email-label, .login-password-label{
+        color:black;
+        font-size: 1.5em;
+        margin: 4px 0;
+        &:focus{
+            outline:none;
+        }
+    }
+
+    .login-email-input, .login-password-input{
+        width: 260px;
+        background: $crayon-pale-lighter-yellow;
+        text-align: center;
+    }
+    .login-email-label, .login-password-label{
+        width:100px;
+        text-align: start;
+        margin-right: 4px;
+    }
+
+    .login-button{
+        width: 150px;
+        margin:auto;
+        margin-top: 2.5vw;
+        padding: 8px;
+        background: $background-color;
+        color: $crayon-pale-lighter-yellow;
+        border: 2px solid $background-lighter-color;
+        &:hover{
+            cursor: pointer;
+            background: $background-lighter-color;
+        }
+        &:focus{
+            border: 2px solid $background-color;
+            background: $background-color;
+        }
+    }
+}

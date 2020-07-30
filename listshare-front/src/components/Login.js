@@ -6,7 +6,7 @@ const Login = () => {
     
     return(
         <>
-            <div className="mainpage-container">
+            <div className="login-container">
                 <h2>Login</h2>
                 <Formik
                 initialValues={{ email:'abcd@example.com', password:'123123321' }}
@@ -18,14 +18,14 @@ const Login = () => {
                 >
                 {({ isSubmitting, errors }) => (
                     <Form>
-                    <label for="email" className="">Email</label>
-                    <Field type="text" name="email" className="" id="email"/>
+                        <label for="email" className="login-email-label">Email:</label>
+                        <Field type="text" name="email" className="login-email-input" id="email"/>
                     <ErrorMessage name="email" component="div" />
-                    <label for="password" className="">Password</label>
-                    <Field type="password" name="password" className="" id="password"/>
+                        <label for="password" className="login-password-label">Password:</label>
+                        <Field type="password" name="password" className="login-password-input" id="password"/>
                     <ErrorMessage name="password" component="div" />
                     {/* <Link to="/content"> */}
-                        <button type="submit" disabled={isSubmitting} className="">
+                        <button type="submit" disabled={isSubmitting} className="login-button">
                             Submit
                         </button>
                     {/* </Link> */}

@@ -1,0 +1,76 @@
+.login-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffcc6b;
+  color: black;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 20vh;
+  padding: 32px 48px;
+}
+
+.login-container h2 {
+  font-size: 2.5em;
+  padding-bottom: 2.5vw;
+}
+
+.login-container form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login-container .login-email-input, .login-container .login-password-input, .login-container .login-button, .login-container .login-email-label, .login-container .login-password-label {
+  color: black;
+  font-size: 1.5em;
+  margin: 4px 0;
+}
+
+.login-container .login-email-input:focus, .login-container .login-password-input:focus, .login-container .login-button:focus, .login-container .login-email-label:focus, .login-container .login-password-label:focus {
+  outline: none;
+}
+
+.login-container .login-email-input, .login-container .login-password-input {
+  width: 260px;
+  background: #ffdea0;
+  text-align: center;
+}
+
+.login-container .login-email-label, .login-container .login-password-label {
+  width: 100px;
+  text-align: start;
+  margin-right: 4px;
+}
+
+.login-container .login-button {
+  width: 150px;
+  margin: auto;
+  margin-top: 2.5vw;
+  padding: 8px;
+  background: #343434;
+  color: #ffdea0;
+  border: 2px solid #464646;
+}
+
+.login-container .login-button:hover {
+  cursor: pointer;
+  background: #464646;
+}
+
+.login-container .login-button:focus {
+  border: 2px solid #343434;
+  background: #343434;
+}
+/*# sourceMappingURL=login.css.map */

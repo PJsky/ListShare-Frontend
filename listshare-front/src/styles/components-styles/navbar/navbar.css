@@ -23,7 +23,8 @@
           justify-content: center;
 }
 
-.navbar-container .navbar-listshare h1 {
+.navbar-container .navbar-listshare h1 a {
+  color: black;
   margin: auto 8vw;
   -webkit-user-select: none;
   /* Safari */
@@ -35,8 +36,12 @@
   /* Standard */
 }
 
-.navbar-container .navbar-listshare h1:hover {
+.navbar-container .navbar-listshare h1 a:hover {
   cursor: pointer;
+}
+
+.navbar-container .navbar-listshare h1 a:active {
+  color: black;
 }
 
 .navbar-container .navigation {
@@ -54,13 +59,13 @@
   list-style: none;
 }
 
-.navbar-container .navigation .navigation-list .navigation-list-item {
+.navbar-container .navigation .navigation-list .navigation-list-item a {
   margin: 0 3vw;
   font-size: 1.3rem;
   color: black;
 }
 
-.navbar-container .navigation .navigation-list .navigation-list-item:hover {
+.navbar-container .navigation .navigation-list .navigation-list-item a:hover {
   cursor: pointer;
   border-bottom: 1px solid black;
   color: black;

@@ -2,14 +2,14 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 
-const Register = () => {
+const register = () => {
     
     return(
         <>
-            <div className="mainpage-container">
+            <div className="register-container">
                 <h2>Register</h2>
                 <Formik
-                initialValues={{ email:'', password:'', password_confirmation:'' }}
+                initialValues={{ email:'', password:'', passwordConfirmation:'' }}
                 onSubmit={(values, { setSubmitting }) => {
                     setTimeout(() => {
                     console.log("Logging");
@@ -18,18 +18,17 @@ const Register = () => {
                 >
                 {({ isSubmitting, errors }) => (
                     <Form>
-                    <label for="email" className="">Email</label>
-                    <Field type="text" name="email" className="" id="email"/>
+                        <label for="email" className="register-email-label">Email:</label>
+                        <Field type="text" name="email" className="register-email-input" id="email"/>
                     <ErrorMessage name="email" component="div" />
-                    <label for="password" className="">Password</label>
-                    <Field type="password" name="password" className="" id="password"/>
+                        <label for="password" className="register-password-label">Password:</label>
+                        <Field type="password" name="password" className="register-password-input" id="password"/>
                     <ErrorMessage name="password" component="div" />
-                    <label for="password" className="sign-up-page-label">Password confirmation</label>
-                    <Field type="password" name="password_confirmation" className="sign-up-page-input" id="password"/>
-                    <ErrorMessage name="password_confirmation" component="div" />
-
+                        <label for="passwordConfirmation" className="register-password-label">Password confirmation:</label>
+                        <Field type="password" name="passwordConfirmation" className="register-password-input" id="passwordConfirmation"/>
+                    <ErrorMessage name="passwordConfirmation" component="div" />
                     {/* <Link to="/content"> */}
-                        <button type="submit" disabled={isSubmitting} className="">
+                        <button type="submit" disabled={isSubmitting} className="register-button">
                             Submit
                         </button>
                     {/* </Link> */}
@@ -41,4 +40,4 @@ const Register = () => {
     )
 }
 
-export default Register;
+export default register;
