@@ -1,8 +1,10 @@
 import React, { Component, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik'; 
 import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const CreateListModal = ({ show, setIsCreateModalActive }) => {
+    const history = useHistory();
     const showHideClassName = show ? "createListModal display-block" : "createListModal display-none";
     const [isPublic, setIsPublic] = useState(true);
 
@@ -20,7 +22,11 @@ const CreateListModal = ({ show, setIsCreateModalActive }) => {
                         Name: values["listName"],
                         ListPassword: isPublic? null : values['listPassword']
                     }).then(({data}) =>{
-                        console.log(data);
+                        let listLink = data.accessCode.split('').filter(x=>x!="#").join('');
+                        history.push("/"+listLink)
+
+                    }).catch((error)=>{
+                        alert(error.response.data);
                     })
                     setSubmitting(false);
                 }}
@@ -44,11 +50,8 @@ const CreateListModal = ({ show, setIsCreateModalActive }) => {
                         </div>
                             <label for="listPassword" className={!isPublic?"createListModal-password-label":"hidden-class"}>Password:</label>
                         <div className={!isPublic?"upper-form":"hidden-class"}>
-                            <Field type="password" name="listPassword" className="createListModal-input"/>
+                            <Field type="password" name="listPassword" className="createListModal-password-input"/>
                             <ErrorMessage name="listPassword" component="div" />
-                            <button type="submit" disabled={isSubmitting} className="createListModal-submit-button">
-                                Submit
-                            </button>
                         </div>
                     </Form>
                     </>
