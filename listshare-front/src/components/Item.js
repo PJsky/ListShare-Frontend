@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import axios from 'axios';
 
 
-const Item = ({name, deletePayload}) => {
+const Item = ({name, deletePayload, setListItems, listItems}) => {
     
     const deleteItem = () =>{
         axios.delete(global.BACKEND + "/api/items", {
             data:deletePayload
         })
+        setListItems(listItems.filter(i=>i.id != deletePayload.ItemId))
     }
 
     return(

@@ -74,6 +74,8 @@ const ItemList = (props) => {
                 items.push(
                     <Item name={item.name}
                           deletePayload={deletePayload}
+                          setListItems={setListItems}
+                          listItems={listItems}
                     />
                 )}
         }catch{
