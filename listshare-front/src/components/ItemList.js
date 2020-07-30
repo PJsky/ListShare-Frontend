@@ -73,6 +73,7 @@ const ItemList = (props) => {
                 }
                 items.push(
                     <Item name={item.name}
+                          isDone={item.isDone}
                           deletePayload={deletePayload}
                           setListItems={setListItems}
                           listItems={listItems}
