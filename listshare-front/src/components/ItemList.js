@@ -12,6 +12,33 @@ const ItemList = (props) => {
     const [isModalActive, setIsModalActive] = useState(null);
     const [listPassword, setListPassword] = useState("");
     const [listItems, setListItems] = useState({});
+    
+    const getItemList = () =>{
+        if(isModalActive == null){
+            return(
+                <></>
+            )
+        }
+        else if(isModalActive) return (
+            <PasswordModal show={isModalActive} 
+            handleClose={()=>setIsModalActive(false)}
+            accessCode={"#"+listAccessCode}
+            setIsModalActive={setIsModalActive}
+            setListPassword={setListPassword}
+            >
+            </PasswordModal>
+        )
+        return (
+            <div className="itemList-container">
+                <h2>#{listAccessCode}</h2>
+                {getItems()}
+                <button className="item-add-button"
+                    onClick={()=>{addItem()}}>
+                    + ADD
+                </button>
+            </div>
+        )
+    }
 
     useEffect(()=>{
         axios.get(global.BACKEND+ "/api/ItemLists/", {
@@ -34,28 +61,6 @@ const ItemList = (props) => {
         });
     },[isModalActive])
 
-    const getItemList = () =>{
-        if(isModalActive == null){
-            return(
-                <></>
-            )
-        }
-        else if(isModalActive) return (
-            <PasswordModal show={isModalActive} 
-            handleClose={()=>setIsModalActive(false)}
-            accessCode={"#"+listAccessCode}
-            setIsModalActive={setIsModalActive}
-            setListPassword={setListPassword}
-            >
-            </PasswordModal>
-        )
-        return (
-            <div className="itemList-container">
-                <h2>#{listAccessCode}</h2>
-                {getItems()}
-            </div>
-        )
-    }
 
     const getItems= () => {
         let items = [];
@@ -68,6 +73,19 @@ const ItemList = (props) => {
 
         }
         return items;
+    }
+
+    const addItem = () =>{
+        axios.post(global.BACKEND + "/api/items", {
+                "Name": "New Item",
+                "ListAccessCode": "#"+listAccessCode,
+                "ListPassword": listPassword,
+                "IsDone": false
+        })
+        setListItems([...listItems, {
+            name: "New Item",
+            IsDone: false
+        }])
     }
 
     return(

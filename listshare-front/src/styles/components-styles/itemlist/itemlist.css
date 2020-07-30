@@ -22,4 +22,20 @@
   font-size: 2.5em;
   padding-bottom: 2.5vw;
 }
+
+.itemList-container .item-add-button {
+  margin: auto;
+  margin-top: 1vh;
+  padding: 8px;
+  background: #343434;
+  border: 0px;
+  border-radius: 2px;
+  font-size: 1.5em;
+  color: white;
+}
+
+.itemList-container .item-add-button:hover {
+  cursor: pointer;
+  background: #464646;
+}
 /*# sourceMappingURL=itemlist.css.map */
