@@ -17,4 +17,5 @@
 @import "./components-styles/login/login.css";
 @import "./components-styles/register/register.css";
 @import "./components-styles/modals/passwordModal/passwordModal.css";
+@import "./components-styles/modals/addItemModal/addItemModal.css";
 

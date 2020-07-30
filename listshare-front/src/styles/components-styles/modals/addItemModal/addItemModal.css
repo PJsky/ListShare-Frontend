@@ -1,4 +1,4 @@
-.passwordModal {
+.addItemModal {
   position: fixed;
   z-index: 2;
   top: 0;
@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.passwordModal-main {
+.addItemModal-main {
   position: fixed;
   background: #ffcc6b;
   height: auto;
@@ -20,19 +20,25 @@
   padding: 24px;
 }
 
-.passwordModal-main .passwordModal-input, .passwordModal-main .passwordModal-submit-button {
+.addItemModal-main form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.addItemModal-main .addItemModal-input, .addItemModal-main .addItemModal-submit-button {
   margin-top: 1vh;
 }
 
-.passwordModal-main .passwordModal-input:focus, .passwordModal-main .passwordModal-submit-button:focus {
+.addItemModal-main .addItemModal-input:focus, .addItemModal-main .addItemModal-submit-button:focus {
   outline: none;
 }
 
-.passwordModal-main .passwordModal-paragraph {
+.addItemModal-main .addItemModal-paragraph {
   margin: 2vw;
 }
 
-.passwordModal-main .passwordModal-input {
+.addItemModal-main .addItemModal-input {
   padding: 8px;
   min-width: 150px;
   text-align: center;
@@ -41,7 +47,7 @@
   border-radius: 10px 0 0 10px;
 }
 
-.passwordModal-main .passwordModal-submit-button {
+.addItemModal-main .addItemModal-submit-button {
   padding: 8px;
   background: #343434;
   border: 0px;
@@ -49,7 +55,7 @@
   color: #ffcc6b;
 }
 
-.passwordModal-main .passwordModal-submit-button:hover {
+.addItemModal-main .addItemModal-submit-button:hover {
   cursor: pointer;
   background: #464646;
 }
@@ -61,4 +67,4 @@
 .display-none {
   display: none;
 }
-/*# sourceMappingURL=passwordModal.css.map */
+/*# sourceMappingURL=addItemModal.css.map */

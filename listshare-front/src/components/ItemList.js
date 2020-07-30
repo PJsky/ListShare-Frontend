@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import PasswordModal from './Modals/PasswordModal';
 import Item from './Item';
+import AddItemModal from './Modals/AddItemModal';
 
 
 const ItemList = (props) => {
@@ -10,6 +11,7 @@ const ItemList = (props) => {
     const listAccessCode = props.match.params.listCode;
     const history = useHistory();
     const [isModalActive, setIsModalActive] = useState(null);
+    const [isAddModalActive, setIsAddModalActive] = useState(false);
     const [listPassword, setListPassword] = useState("");
     const [listItems, setListItems] = useState({});
     
@@ -29,6 +31,8 @@ const ItemList = (props) => {
             </PasswordModal>
         )
         return (
+            <>
+            {getAddModal()}
             <div className="itemList-container">
                 <h2>#{listAccessCode}</h2>
                 {getItems()}
@@ -37,6 +41,7 @@ const ItemList = (props) => {
                     + ADD
                 </button>
             </div>
+            </>
         )
     }
 
@@ -86,16 +91,20 @@ const ItemList = (props) => {
     }
 
     const addItem = () =>{
-        axios.post(global.BACKEND + "/api/items", {
-                "Name": "New Item",
-                "ListAccessCode": "#"+listAccessCode,
-                "ListPassword": listPassword,
-                "IsDone": false
-        })
-        setListItems([...listItems, {
-            name: "New Item",
-            IsDone: false
-        }])
+        setIsAddModalActive(true);
+        
+    }
+
+    const getAddModal = () =>{
+        return(
+            <AddItemModal show={isAddModalActive} 
+            setIsAddModalActive={setIsAddModalActive}
+            listAccessCode={listAccessCode}
+            listPassword={listPassword}
+            setListItems={setListItems}
+            listItems={listItems}
+            />
+        )
     }
 
     return(

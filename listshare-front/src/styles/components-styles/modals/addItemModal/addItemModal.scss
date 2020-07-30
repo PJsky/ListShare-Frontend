@@ -1,6 +1,6 @@
 @import '../../shared.scss';
 
-.passwordModal {
+.addItemModal {
     position: fixed;
     z-index: 2;
     top: 0;
@@ -11,7 +11,7 @@
     text-align: center;
   }
   
-  .passwordModal-main {
+  .addItemModal-main {
     position:fixed;
     background: $crayon-pale-yellow;
     height: auto;
@@ -20,16 +20,20 @@
     transform: translate(-50%,-50%);
     padding: 24px;
 
-    .passwordModal-input, .passwordModal-submit-button{
+    form{
+        display:flex;
+    }
+
+    .addItemModal-input, .addItemModal-submit-button{
       margin-top: 1vh;
       &:focus{
         outline: none;
       }
     }
-    .passwordModal-paragraph{
+    .addItemModal-paragraph{
       margin: 2vw;
     }
-    .passwordModal-input{
+    .addItemModal-input{
         padding:8px;
         // border: 1px solid black;
         min-width: 150px;
@@ -38,7 +42,7 @@
         background: $crayon-pale-lighter-yellow;
         border-radius: 10px 0 0 10px;
     }
-    .passwordModal-submit-button{
+    .addItemModal-submit-button{
         padding:8px;
         background: $background-color;
         border: 0px;
