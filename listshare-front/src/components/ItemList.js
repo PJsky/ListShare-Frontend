@@ -65,10 +65,17 @@ const ItemList = (props) => {
     const getItems= () => {
         let items = [];
         try{
-            for(let item of listItems)
+            for(let item of listItems){
+                let deletePayload = {
+                    "ItemId":item.id,
+                    "ListAccessCode": "#"+listAccessCode,
+                    "ListPassword": listPassword
+                }
                 items.push(
-                    <Item name={item.name}/>
-                )
+                    <Item name={item.name}
+                          deletePayload={deletePayload}
+                    />
+                )}
         }catch{
 
         }

@@ -1,8 +1,15 @@
 import React, { useEffect } from 'react';
+import axios from 'axios';
 
 
-const Item = ({name}) => {
+const Item = ({name, deletePayload}) => {
     
+    const deleteItem = () =>{
+        axios.delete(global.BACKEND + "/api/items", {
+            data:deletePayload
+        })
+    }
+
     return(
         <>
         <div className="item-container">
@@ -13,6 +20,10 @@ const Item = ({name}) => {
                 <input type="checkbox"/>
                 <span class="checkmark"></span>
             </label>
+            <div className="delete-item"
+            onClick={()=>{
+                deleteItem();
+            }}>X</div>
         </div>
         </>
     )

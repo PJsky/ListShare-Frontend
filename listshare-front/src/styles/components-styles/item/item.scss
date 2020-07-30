@@ -2,7 +2,7 @@
 
 .item-container{
     display: flex;
-    // justify-content: start;
+    justify-content: space-between;
     // text-align: end;
     .item{
         min-height: 20px;
@@ -13,6 +13,18 @@
         text-align: end;
     }
 
+    .delete-item{
+      margin:0 8px;
+      height: 24px;
+      width: 24px;
+      background: $background-color;
+      color:red;
+      font-weight: bold;
+      float: right;
+      &:hover{
+        cursor: pointer;
+      }
+    }
 
     //checkmark style
     .container {
