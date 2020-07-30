@@ -6,7 +6,7 @@ const AddItemModal = ({ show, listAccessCode, listPassword, setIsAddModalActive,
     const showHideClassName = show ? "addItemModal display-block" : "addItemModal display-none";
   
     return (
-      <div className={showHideClassName} onClick={(e)=>{
+      <div className={showHideClassName} onMouseDown={(e)=>{
         if(e.target.classList[0] == "addItemModal")setIsAddModalActive(false);
       }}>
         <section className="addItemModal-main">
@@ -20,11 +20,13 @@ const AddItemModal = ({ show, listAccessCode, listPassword, setIsAddModalActive,
                         "ListPassword": listPassword,
                     }).then(({data}) =>{
                         console.log(data);
+                        setSubmitting(false);
                         setListItems([...listItems, {
                             name: values["itemName"],
                             IsDone: false,
                             id: data.itemId
-                        }])
+                        }]);
+                        setIsAddModalActive(false);
                     })
                     
                     
