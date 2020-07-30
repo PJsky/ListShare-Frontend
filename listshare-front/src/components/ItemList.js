@@ -14,6 +14,7 @@ const ItemList = (props) => {
     const [isAddModalActive, setIsAddModalActive] = useState(false);
     const [listPassword, setListPassword] = useState("");
     const [listItems, setListItems] = useState({});
+    const [listName, setListName] = useState("no name");
     
     const getItemList = () =>{
         if(isModalActive == null){
@@ -34,7 +35,8 @@ const ItemList = (props) => {
             <>
             {getAddModal()}
             <div className="itemList-container">
-                <h2>#{listAccessCode}</h2>
+                <h2>{listName}</h2>
+                <h3>#{listAccessCode}</h3>
                 {getItems()}
                 <button className="item-add-button"
                     onClick={()=>{addItem()}}>

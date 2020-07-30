@@ -7,6 +7,9 @@
   a{
     text-decoration: none;
   }
+  .hidden-class{
+    display: none;
+  }
   
 @import "./fonts.css";  
 @import "./components-styles/shared.css";
@@ -18,4 +21,5 @@
 @import "./components-styles/register/register.css";
 @import "./components-styles/modals/passwordModal/passwordModal.css";
 @import "./components-styles/modals/addItemModal/addItemModal.css";
+@import "./components-styles/modals/createListModal/createListModal.css";
 

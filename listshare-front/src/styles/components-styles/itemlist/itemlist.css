@@ -20,7 +20,11 @@
 
 .itemList-container h2 {
   font-size: 2.5em;
-  padding-bottom: 2.5vw;
+  padding-bottom: 0.5vh;
+}
+
+.itemList-container h3 {
+  padding-bottom: 2.5vh;
 }
 
 .itemList-container .item-add-button {

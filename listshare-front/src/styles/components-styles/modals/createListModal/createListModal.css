@@ -1,0 +1,100 @@
+.createListModal {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.createListModal-main {
+  position: fixed;
+  background: #ffcc6b;
+  height: auto;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 24px;
+}
+
+.createListModal-main .upper-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.createListModal-main .createListModal-type {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.createListModal-main .createListModal-type .createListModal-public, .createListModal-main .createListModal-type .createListModal-private {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 8px;
+  border-radius: 2px;
+  margin: 2.5vh auto 0 auto;
+  background-color: #343434;
+  color: #464646;
+}
+
+.createListModal-main .createListModal-type .createListModal-public:hover, .createListModal-main .createListModal-type .createListModal-private:hover {
+  cursor: pointer;
+}
+
+.createListModal-main .createListModal-type .createListModal-public-highlighted, .createListModal-main .createListModal-type .createListModal-private-highlighted {
+  background-color: #464646;
+  color: #ffdea0;
+}
+
+.createListModal-main .createListModal-type .createListModal-private-highlighted {
+  margin-bottom: 2.5vh;
+}
+
+.createListModal-main .createListModal-input, .createListModal-main .createListModal-submit-button {
+  margin-top: 1vh;
+}
+
+.createListModal-main .createListModal-input:focus, .createListModal-main .createListModal-submit-button:focus {
+  outline: none;
+}
+
+.createListModal-main .createListModal-paragraph {
+  margin: 2vw;
+}
+
+.createListModal-main .createListModal-input {
+  padding: 8px;
+  min-width: 150px;
+  text-align: center;
+  border: 0px;
+  background: #ffdea0;
+  border-radius: 10px 0 0 10px;
+}
+
+.createListModal-main .createListModal-submit-button {
+  padding: 8px;
+  background: #343434;
+  border: 0px;
+  border-radius: 0 10px 10px 0;
+  color: #ffcc6b;
+}
+
+.createListModal-main .createListModal-submit-button:hover {
+  cursor: pointer;
+  background: #464646;
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+/*# sourceMappingURL=createListModal.css.map */

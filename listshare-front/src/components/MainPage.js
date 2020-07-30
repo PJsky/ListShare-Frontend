@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import CreateListModal from './Modals/CreateListModal';
 
 
 const Nav = () => {
     let history = useHistory();
+    const [isCreateModalActive, setIsCreateModalActive] = useState(false);
     return(
         <>
             <div className="mainpage-container">
@@ -40,8 +42,15 @@ const Nav = () => {
                 )}
                 </Formik>
                 <p>or</p>
-                <button className="mainpage-create-button">Create List</button>
+                <button className="mainpage-create-button"
+                 onClick={()=>{setIsCreateModalActive(true)}}>
+                    Create List
+                </button>
             </div>
+            <CreateListModal
+            show={isCreateModalActive}
+            setIsCreateModalActive={setIsCreateModalActive}
+            />
         </>
     )
 }
