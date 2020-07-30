@@ -12,6 +12,8 @@
 @import "./components-styles/shared.css";
 @import "./components-styles/navbar/navbar.css";
 @import "./components-styles/mainpage/mainpage.css";
+@import "./components-styles/itemlist/itemlist.css";
 @import "./components-styles/login/login.css";
 @import "./components-styles/register/register.css";
+@import "./components-styles/modals/passwordModal/passwordModal.css";
 

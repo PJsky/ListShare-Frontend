@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,aAAa,CAAC;EACV,UAAU,EAAE,cAAc;EAC1B,gBAAgB,ECDC,OAAO;EDExB,MAAM,EAAE,IAAI;CACf",
+    "sources": [
+        "itemlist.scss",
+        "../shared.scss"
+    ],
+    "names": [],
+    "file": "itemlist.css"
+}
