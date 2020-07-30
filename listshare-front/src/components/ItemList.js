@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import PasswordModal from './Modals/PasswordModal';
+import Item from './Item';
 
 
 const ItemList = (props) => {
     let doesListExist = true;
     const listAccessCode = props.match.params.listCode;
     const history = useHistory();
-    const [isModalActive, setIsModalActive] = useState(false);
+    const [isModalActive, setIsModalActive] = useState(null);
     const [listPassword, setListPassword] = useState("");
+    const [listItems, setListItems] = useState({});
 
     useEffect(()=>{
         axios.get(global.BACKEND+ "/api/ItemLists/", {
@@ -20,6 +22,9 @@ const ItemList = (props) => {
             }
         })
         .then(({data}) => {
+            console.log(data.items);
+            setIsModalActive(false);
+            setListItems(data.items);
         }).catch( error => {
             setIsModalActive(true);
             if(error.response.status != 400) {
@@ -30,7 +35,12 @@ const ItemList = (props) => {
     },[isModalActive])
 
     const getItemList = () =>{
-        if(isModalActive) return (
+        if(isModalActive == null){
+            return(
+                <></>
+            )
+        }
+        else if(isModalActive) return (
             <PasswordModal show={isModalActive} 
             handleClose={()=>setIsModalActive(false)}
             accessCode={"#"+listAccessCode}
@@ -42,8 +52,22 @@ const ItemList = (props) => {
         return (
             <div className="itemList-container">
                 <h2>#{listAccessCode}</h2>
+                {getItems()}
             </div>
         )
+    }
+
+    const getItems= () => {
+        let items = [];
+        try{
+            for(let item of listItems)
+                items.push(
+                    <Item name={item.name}/>
+                )
+        }catch{
+
+        }
+        return items;
     }
 
     return(

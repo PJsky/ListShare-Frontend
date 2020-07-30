@@ -1,6 +1,25 @@
-.rodal-dialog {
-  margin-top: 5vh !important;
-  background-color: #ffcc6b;
+.itemList-container {
+  margin-top: calc(2vh + 20vh);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #ffcc6b;
+  color: black;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin: auto;
+  margin-top: 20vh;
+  padding: 32px 48px;
+}
+
+.itemList-container h2 {
+  font-size: 2.5em;
+  padding-bottom: 2.5vw;
 }
 /*# sourceMappingURL=itemlist.css.map */
