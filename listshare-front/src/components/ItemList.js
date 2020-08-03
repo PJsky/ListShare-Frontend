@@ -48,6 +48,22 @@ const ItemList = (props) => {
     }
 
     useEffect(()=>{
+
+        
+        try{
+            let myStorageLists = window.localStorage.getItem('RecentItemLists').split(',');
+            if(!myStorageLists.includes(listAccessCode)){
+                if(myStorageLists.length>=5) myStorageLists.shift();
+                myStorageLists.push(listAccessCode);
+                console.log(myStorageLists);
+                window.localStorage.setItem(`RecentItemLists`, myStorageLists);
+                }
+        }catch{
+            window.localStorage.setItem(`RecentItemLists`, [listAccessCode]);
+        }
+    })
+
+    useEffect(()=>{
         axios.get(global.BACKEND+ "/api/ItemLists/", {
             headers:{},
             params:{

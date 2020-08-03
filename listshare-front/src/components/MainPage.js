@@ -8,6 +8,27 @@ import CreateListModal from './Modals/CreateListModal';
 const Nav = () => {
     let history = useHistory();
     const [isCreateModalActive, setIsCreateModalActive] = useState(false);
+    
+    const getRecentLists = () => {
+        let myStorageLists = [];
+        let recentLists = [];
+        try{
+            myStorageLists = window.localStorage.getItem('RecentItemLists').split(',');
+            console.log(myStorageLists);
+        }catch{}
+        for(var list of myStorageLists){
+        //Copy of immutable string
+         const historyLink = list;
+            recentLists.push(
+                <div className="mainpage-recent" onClick={()=>{history.push(historyLink)}}>
+                    #{list}
+                </div>
+            )     
+        }
+        return recentLists.reverse();
+            
+    }
+
     return(
         <>
             <div className="mainpage-container">
@@ -25,7 +46,6 @@ const Nav = () => {
                             setSubmitting(false);
                             history.push(`/${noHashSearchList}`);
                         }).catch( error => {
-                            console.log(error.response.data);
                             setSubmitting(false);
                         });
                     }, 400);
@@ -46,6 +66,10 @@ const Nav = () => {
                  onClick={()=>{setIsCreateModalActive(true)}}>
                     Create List
                 </button>
+            </div>
+            <div className="mainpage-recent-container">
+                <h3>Recently Visited:</h3>
+                {getRecentLists()}
             </div>
             <CreateListModal
             show={isCreateModalActive}

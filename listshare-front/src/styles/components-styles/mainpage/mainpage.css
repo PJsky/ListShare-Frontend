@@ -12,7 +12,6 @@ body {
           flex-direction: column;
   color: #ffcc6b;
   text-align: center;
-  height: 40vh;
   margin: auto;
   margin-top: 20vh;
 }
@@ -75,5 +74,39 @@ body {
 .mainpage-container .mainpage-create-button {
   margin: 0 auto;
   border-radius: 2px;
+}
+
+.mainpage-recent-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: auto;
+  margin-top: 8vh;
+  text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #ffcc6b;
+}
+
+.mainpage-recent-container .mainpage-recent {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  margin-top: 8px;
+  border-bottom: 1px solid #00000000;
+}
+
+.mainpage-recent-container .mainpage-recent:hover {
+  cursor: pointer;
+  border-bottom: 1px solid #ffcc6b;
 }
 /*# sourceMappingURL=mainpage.css.map */
