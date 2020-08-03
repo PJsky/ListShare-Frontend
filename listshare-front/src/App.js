@@ -7,8 +7,8 @@ import ItemList from './components/ItemList';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 
-//global.BACKEND = "https://localhost:44301"
-global.BACKEND = "http://elmand99-001-site1.htempurl.com"
+global.BACKEND = "https://localhost:44301"
+// global.BACKEND = "http://elmand99-001-site1.htempurl.com"
 function App() {
   return (
     <Router>
