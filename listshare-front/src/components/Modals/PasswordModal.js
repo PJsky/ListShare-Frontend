@@ -38,7 +38,7 @@ const PasswordpasswordModal = ({ handleClose, show, children, accessCode, setIsM
                 >
                 {({ isSubmitting }) => (
                     <Form>
-                    <Field type="text" name="listPassword" className="passwordModal-input"/>
+                    <Field type="password" name="listPassword" className="passwordModal-input"/>
                     <ErrorMessage name="listPassword" component="div" />
                     <button type="submit" disabled={isSubmitting} className="passwordModal-submit-button">
                         Submit
