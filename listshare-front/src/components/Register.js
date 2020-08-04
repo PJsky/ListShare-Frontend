@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
-
+import axios from 'axios';
 
 const register = () => {
     
@@ -11,9 +11,16 @@ const register = () => {
                 <Formik
                 initialValues={{ email:'', password:'', passwordConfirmation:'' }}
                 onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
-                    console.log("Logging");
-                    }, 400);
+                    console.log( values['email']);
+                    
+                    axios.post(global.BACKEND + "/api/users/register", {
+                        "email": values["email"],
+                        "password": values["password"]
+                    }).then( ({data}) => {
+                        console.log(data);
+                    }).catch( (error) => {
+                        console.log(error.response);
+                    }) 
                 }}
                 >
                 {({ isSubmitting, errors }) => (

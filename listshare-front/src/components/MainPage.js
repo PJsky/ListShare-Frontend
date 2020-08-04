@@ -37,7 +37,6 @@ const Nav = () => {
                 <Formik
                 initialValues={{ searchList:'#0BNLIBA4' }}
                 onSubmit={(values, { setSubmitting }) => {
-                    setTimeout(() => {
                         console.log("searching for a list")
                         var noHashSearchList = values["searchList"].split('').filter(x=>x !='#').join('')
                         axios.get(global.BACKEND+ "/api/ItemLists/"+ noHashSearchList)
@@ -48,7 +47,6 @@ const Nav = () => {
                         }).catch( error => {
                             setSubmitting(false);
                         });
-                    }, 400);
                 }}
                 >
                 {({ isSubmitting }) => (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./styles/style.css";
 import MainPage from './components/MainPage';
 import Login from './components/Login';
@@ -6,10 +6,16 @@ import Register from './components/Register';
 import ItemList from './components/ItemList';
 import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 global.BACKEND = "https://localhost:44301"
 // global.BACKEND = "http://elmand99-001-site1.htempurl.com"
-function App() {
+
+
+const App = () => {
+
+  const dispatch = useDispatch();
+
   return (
     <Router>
       <div className="App">
