@@ -80,6 +80,7 @@ body{
     justify-content: center;
     margin: auto;
     margin-top: 8vh;
+    padding:0 3vw;
     text-align: center;
     width: fit-content;
     color: $crayon-pale-yellow;
@@ -95,6 +96,9 @@ body{
     }
 }
 
-.main-container{
-    
+.mainpage-lists{
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
 }
