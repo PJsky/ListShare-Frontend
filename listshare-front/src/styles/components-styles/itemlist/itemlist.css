@@ -42,4 +42,37 @@
   cursor: pointer;
   background: #464646;
 }
+
+.starred {
+  color: black;
+}
+
+.starred-highlight {
+  color: #343434;
+}
+
+.starred-highlight .starred-image {
+  background-color: #343434;
+  color: #343434;
+}
+
+.starred, .starred-highlight {
+  font-size: 1.5em;
+}
+
+.starred svg, .starred-highlight svg {
+  position: relative;
+  right: -38px;
+  top: -24px;
+  float: right;
+}
+
+.starred .starred-image, .starred-highlight .starred-image {
+  width: 48px;
+  height: 48px;
+}
+
+.starred:hover, .starred-highlight:hover {
+  cursor: pointer;
+}
 /*# sourceMappingURL=itemlist.css.map */

@@ -9,7 +9,7 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 import { useDispatch } from 'react-redux';
 
 global.BACKEND = "https://localhost:44301"
-// global.BACKEND = "http://elmand99-001-site1.htempurl.com"
+//global.BACKEND = "https://listshare-pjsky.herokuapp.com"
 
 
 const App = () => {

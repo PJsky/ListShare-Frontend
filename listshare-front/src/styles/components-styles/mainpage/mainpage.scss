@@ -78,13 +78,16 @@ body{
     
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    max-height: 180px;
     margin: auto;
     margin-top: 8vh;
     padding:0 3vw;
     text-align: center;
     width: fit-content;
     color: $crayon-pale-yellow;
+    &:nth-child(2){
+        overflow-y: auto;
+    }
     .mainpage-recent{
         width: fit-content;
         margin:auto;

@@ -35,3 +35,30 @@
         }
     }
 }
+
+.starred{
+    color:black;
+}
+.starred-highlight{
+    color: $background-color;
+    .starred-image{
+        background-color: $background-color;
+        color:$background-color;
+    }
+}
+.starred, .starred-highlight{
+    font-size: 1.5em;
+    svg{
+        position: relative;
+        right: -38px;
+        top: -24px;
+        float: right;
+    }
+    .starred-image{
+        width: 48px;
+        height: 48px;
+    }
+    &:hover{
+        cursor: pointer;
+    }
+}

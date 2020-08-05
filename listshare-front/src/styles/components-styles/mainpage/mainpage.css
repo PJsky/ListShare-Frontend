@@ -84,9 +84,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  max-height: 180px;
   margin: auto;
   margin-top: 8vh;
   padding: 0 3vw;
@@ -95,6 +93,10 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   color: #ffcc6b;
+}
+
+.mainpage-recent-container:nth-child(2) {
+  overflow-y: auto;
 }
 
 .mainpage-recent-container .mainpage-recent {

@@ -4,6 +4,9 @@ import { useHistory } from 'react-router-dom';
 import PasswordModal from './Modals/PasswordModal';
 import Item from './Item';
 import AddItemModal from './Modals/AddItemModal';
+import { FaStar, FaRegStar } from 'react-icons/fa';
+import { useSelector } from 'react-redux';
+
 
 
 const ItemList = (props) => {
@@ -15,6 +18,8 @@ const ItemList = (props) => {
     const [listPassword, setListPassword] = useState("");
     const [listItems, setListItems] = useState({});
     const [listName, setListName] = useState("no name");
+    const [isStarred, setIsStarred] = useState(false);
+    const isLogged = useSelector(state => state.logged_in);
     
     const getItemList = () =>{
         if(isModalActive == null){
@@ -28,6 +33,8 @@ const ItemList = (props) => {
             accessCode={"#"+listAccessCode}
             setIsModalActive={setIsModalActive}
             setListPassword={setListPassword}
+            setListName={setListName}
+            setIsStarred={setIsStarred}
             >
             </PasswordModal>
         )
@@ -35,11 +42,16 @@ const ItemList = (props) => {
             <>
             {getAddModal()}
             <div className="itemList-container">
+                <h4 
+                onClick={()=>{changeStar()}} 
+                className={isStarred?"starred-highlight":"starred"}>
+                    {getStar()}
+                </h4>
                 <h2>{listName}</h2>
                 <h3>#{listAccessCode}</h3>
                 {getItems()}
                 <button className="item-add-button"
-                    onClick={()=>{addItem()}}>
+                    onClick={(e)=>{addItem()}}>
                     + ADD
                 </button>
             </div>
@@ -48,8 +60,6 @@ const ItemList = (props) => {
     }
 
     useEffect(()=>{
-
-        
         try{
             let myStorageLists = window.localStorage.getItem('RecentItemLists').split(',');
             if(!myStorageLists.includes(listAccessCode)){
@@ -65,16 +75,20 @@ const ItemList = (props) => {
 
     useEffect(()=>{
         axios.get(global.BACKEND+ "/api/ItemLists/", {
-            headers:{},
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("AccessToken")
+            },
             params:{
                 "AccessCode": "#" + listAccessCode,
                 "ListPassword": listPassword
             }
         })
         .then(({data}) => {
-            console.log(data.items);
+            console.log(data);
             setIsModalActive(false);
             setListItems(data.items);
+            setListName(data.name);
+            setIsStarred(data.isStarred);
         }).catch( error => {
             setIsModalActive(true);
             if(error.response.status != 400) {
@@ -125,13 +139,48 @@ const ItemList = (props) => {
         )
     }
 
+    const getStar = () => {
+        if(!isLogged) return ;
+        if(isStarred) return (<FaStar/>);
+        return (<FaRegStar/>);
+    }
+
+    const changeStar = () => {
+        //setIsStarred(!isStarred);
+        if(!isStarred)
+            axios.post(global.BACKEND + "/api/users/starred", {
+                "AccessCode" : "#"+listAccessCode
+            },{
+                headers:{
+                    "Authorization": "Bearer " + localStorage.getItem("AccessToken")
+                }
+            }).then(response => {
+                console.log(response.data);
+                setIsStarred(true);
+            }).catch(error => {
+                console.log(error.response);
+            })
+        else
+            axios.delete(global.BACKEND + "/api/users/starred", {
+                data:{
+                    "AccessCode" : "#" + listAccessCode
+                },
+                headers:{
+                    "Authorization": "Bearer " + localStorage.getItem("AccessToken") 
+                }
+            }).then(response => {
+                console.log(response);
+                setIsStarred(false);
+            }).catch(error => {
+                console.log(error.response);
+            })
+    }
+
     return(
         <>
             {getItemList()}
         </>
     )
-
-    
 }
 
 export default ItemList;
