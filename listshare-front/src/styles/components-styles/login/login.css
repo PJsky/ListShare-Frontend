@@ -6,7 +6,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  background: #ffcc6b;
+  background: #fdd17f;
   color: black;
   text-align: center;
   width: -webkit-fit-content;
@@ -15,6 +15,12 @@
   margin: auto;
   margin-top: 20vh;
   padding: 32px 48px;
+}
+
+@media (max-width: 380px) {
+  .login-container {
+    padding: 4vw;
+  }
 }
 
 .login-container h2 {
@@ -46,6 +52,12 @@
   width: 260px;
   background: #ffdea0;
   text-align: center;
+}
+
+@media (max-width: 300px) {
+  .login-container .login-email-input, .login-container .login-password-input {
+    width: 85vw;
+  }
 }
 
 .login-container .login-email-label, .login-container .login-password-label {

@@ -48,6 +48,11 @@ body{
         border: 0px;
         background: $crayon-pale-lighter-yellow;
         border-radius: 10px 0 0 10px;
+        @media (max-width: 260px) {
+            width: 60vw;
+            min-width:0;
+            font-size:10vw;
+          }
     }
 
     .mainpage-search-button, .mainpage-create-button{
@@ -59,11 +64,15 @@ body{
 
         &:hover{
             cursor: pointer;
-            background: $crayon-pale-yellow;
+            background: $crayon-yellow;
         }
     }
     .mainpage-search-button{
         border-radius: 0 10px 10px 0;
+        @media (max-width: 260px) {
+            width: 35vw;
+            font-size:10vw;
+          }
     }
 
     .mainpage-create-button{

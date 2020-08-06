@@ -13,7 +13,6 @@ const Item = ({name, deletePayload, setListItems, listItems, isDone}) => {
     }
 
     const checkBox = (done) =>{
-        console.log(done);
         axios.put(global.BACKEND + "/api/items", {
             ...deletePayload,
             IsDone: done

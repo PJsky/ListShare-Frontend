@@ -9,12 +9,12 @@ const Nav = () => {
     let history = useHistory();
     const [isCreateModalActive, setIsCreateModalActive] = useState(false);
     const [starredLists, setStarredLists] = useState([]);
+    const [isDataInvalid, setIsDataInvalid] = useState(false);
     const getRecentLists = () => {
         let myStorageLists = [];
         let recentLists = [];
         try{
             myStorageLists = window.localStorage.getItem('RecentItemLists').split(',');
-            console.log(myStorageLists);
         }catch{}
         for(var list of myStorageLists){
         //Copy of immutable string
@@ -33,7 +33,6 @@ const Nav = () => {
         //var starredLists = []
         var lists = [];
         for(var list of starredLists){
-            console.log(list);
             const historyLink = list.accessCode;
             lists.push(
                 <div className="mainpage-recent" onClick={()=>{history.push(historyLink.slice(1))}}>
@@ -59,10 +58,8 @@ const Nav = () => {
             }
         })
         .then(({data}) => {
-            console.log(data);
             setStarredLists(data);
         }).catch((error)=>{
-            console.log(error.response);
         })
     }, [])
 
@@ -74,26 +71,28 @@ const Nav = () => {
                 <Formik
                 initialValues={{ searchList:'#0BNLIBA4' }}
                 onSubmit={(values, { setSubmitting }) => {
-                        console.log("searching for a list")
                         var noHashSearchList = values["searchList"].split('').filter(x=>x !='#').join('')
                         axios.get(global.BACKEND+ "/api/ItemLists/"+ noHashSearchList)
                         .then(({data}) => {
-                            console.log(data);
                             setSubmitting(false);
                             history.push(`/${noHashSearchList}`);
                         }).catch( error => {
                             setSubmitting(false);
+                            setIsDataInvalid(true);
                         });
                 }}
                 >
                 {({ isSubmitting }) => (
-                    <Form>
+                    <>
+                    <Form onChange={()=>{setIsDataInvalid(false)}}>
                     <Field type="text" name="searchList" className="mainpage-search-input"/>
                     <ErrorMessage name="searchList" component="div" />
                     <button type="submit" disabled={isSubmitting} className="mainpage-search-button">
                         Search
                     </button>
                     </Form>
+                    <div className={isDataInvalid?"form-error":"hidden-class"}>Invalid access code</div>
+                    </>
                 )}
                 </Formik>
                 <p>or</p>

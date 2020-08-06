@@ -65,7 +65,6 @@ const ItemList = (props) => {
             if(!myStorageLists.includes(listAccessCode)){
                 if(myStorageLists.length>=5) myStorageLists.shift();
                 myStorageLists.push(listAccessCode);
-                console.log(myStorageLists);
                 window.localStorage.setItem(`RecentItemLists`, myStorageLists);
                 }
         }catch{
@@ -84,7 +83,6 @@ const ItemList = (props) => {
             }
         })
         .then(({data}) => {
-            console.log(data);
             setIsModalActive(false);
             setListItems(data.items);
             setListName(data.name);
@@ -155,10 +153,8 @@ const ItemList = (props) => {
                     "Authorization": "Bearer " + localStorage.getItem("AccessToken")
                 }
             }).then(response => {
-                console.log(response.data);
                 setIsStarred(true);
             }).catch(error => {
-                console.log(error.response);
             })
         else
             axios.delete(global.BACKEND + "/api/users/starred", {
@@ -169,10 +165,8 @@ const ItemList = (props) => {
                     "Authorization": "Bearer " + localStorage.getItem("AccessToken") 
                 }
             }).then(response => {
-                console.log(response);
                 setIsStarred(false);
             }).catch(error => {
-                console.log(error.response);
             })
     }
 

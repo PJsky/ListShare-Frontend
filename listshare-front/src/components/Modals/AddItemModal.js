@@ -19,7 +19,6 @@ const AddItemModal = ({ show, listAccessCode, listPassword, setIsAddModalActive,
                         "ListAccessCode": "#"+listAccessCode,
                         "ListPassword": listPassword,
                     }).then(({data}) =>{
-                        console.log(data);
                         setSubmitting(false);
                         setListItems([...listItems, {
                             name: values["itemName"],
@@ -28,11 +27,6 @@ const AddItemModal = ({ show, listAccessCode, listPassword, setIsAddModalActive,
                         }]);
                         setIsAddModalActive(false);
                     })
-                    
-                    
-                    // setTimeout(() => {
-                    //     console.log(values["itemName"])
-                    // }, 400);
                 }}
                 >
                 {({ isSubmitting }) => (

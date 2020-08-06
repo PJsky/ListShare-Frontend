@@ -32,7 +32,6 @@ const Nav = () => {
     }
 
     const logOut = () =>{
-        console.log("abc")
         try{
             window.localStorage.removeItem("AccessToken");
         }catch{}

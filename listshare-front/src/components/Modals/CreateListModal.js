@@ -2,6 +2,7 @@ import React, { Component, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from 'formik'; 
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import listPasswordSchema from "../../validation/listPasswordSchema";
 
 const CreateListModal = ({ show, setIsCreateModalActive }) => {
     const history = useHistory();
@@ -16,6 +17,7 @@ const CreateListModal = ({ show, setIsCreateModalActive }) => {
           <p className="createListModal-paragraph">Please enter list name:</p>
           <Formik
                 initialValues={{ listName:'', listPassword:'' }}
+                validationSchema={!isPublic?listPasswordSchema:null}
                 onSubmit={(values, { setSubmitting }) => {
                     axios.post(global.BACKEND + "/api/itemLists", {
                         isPublic: isPublic,
@@ -51,9 +53,9 @@ const CreateListModal = ({ show, setIsCreateModalActive }) => {
                             <label for="listPassword" className={!isPublic?"createListModal-password-label":"hidden-class"}>Password:</label>
                         <div className={!isPublic?"upper-form":"hidden-class"}>
                             <Field type="password" name="listPassword" className="createListModal-password-input"/>
-                            <ErrorMessage name="listPassword" component="div" />
                         </div>
                     </Form>
+                            <ErrorMessage name="listPassword" component="div" />
                     </>
                 )}
                 </Formik>

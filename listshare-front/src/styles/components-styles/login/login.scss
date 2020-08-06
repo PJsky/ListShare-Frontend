@@ -11,15 +11,14 @@
     margin: auto;
     margin-top:20vh;
     padding: 32px 48px;
+    @media (max-width: 380px) {
+        padding: 4vw;
+      }
     h2{
         font-size: 2.5em;
         padding-bottom: 2.5vw;
     }
 
-    // .login-form-row{
-    //     display:flex;
-    //     justify-content: center;
-    // }
     form{
         display: flex;
         flex-direction: column;
@@ -38,6 +37,10 @@
         width: 260px;
         background: $crayon-pale-lighter-yellow;
         text-align: center;
+
+        @media (max-width: 300px) {
+            width: 85vw;
+          }
     }
     .login-email-label, .login-password-label{
         width:100px;

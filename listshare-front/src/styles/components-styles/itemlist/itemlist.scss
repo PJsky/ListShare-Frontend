@@ -34,6 +34,18 @@
             background: $background-lighter-color;
         }
     }
+    .container{
+        text-align: left;
+        min-width: 80px;
+        max-width: 200px;
+        word-break: break-word;
+        max-height: 160px;
+        overflow-y: hidden;
+    }
+    .delete-item{
+        min-width: 24px;
+        min-height: 24px;
+    }
 }
 
 .starred{
