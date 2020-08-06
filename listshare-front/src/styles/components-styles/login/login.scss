@@ -64,5 +64,10 @@
             border: 2px solid $background-color;
             background: $background-color;
         }
+
+        @media (max-width: 165px){
+            width: 90vw;
+            font-size: 15vw;
+        }
     }
 }

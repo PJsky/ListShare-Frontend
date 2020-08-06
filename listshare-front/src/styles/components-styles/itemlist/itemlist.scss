@@ -11,6 +11,9 @@
     margin: auto;
     margin-top:20vh;
     padding: 32px 48px;
+    @media (max-width: 260px){
+        padding: 8px;
+    }
     h2{
         font-size: 2.5em;
         padding-bottom: 0.5vh;
