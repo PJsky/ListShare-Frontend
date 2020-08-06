@@ -8,8 +8,8 @@ import Navbar from './components/Navbar';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-global.BACKEND = "https://localhost:44301"
-//global.BACKEND = "https://listshare-pjsky.herokuapp.com"
+//global.BACKEND = "https://localhost:44301"
+global.BACKEND = "https://listshare-pjsky.herokuapp.com"
 
 
 const App = () => {

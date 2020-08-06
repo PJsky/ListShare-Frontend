@@ -69,7 +69,7 @@ const Nav = () => {
                 {/* <h1>Hello!</h1> */}
                 <h2>Search for a list</h2>
                 <Formik
-                initialValues={{ searchList:'#0BNLIBA4' }}
+                initialValues={{ searchList:'#POK3LAPU' }}
                 onSubmit={(values, { setSubmitting }) => {
                         var noHashSearchList = values["searchList"].split('').filter(x=>x !='#').join('')
                         axios.get(global.BACKEND+ "/api/ItemLists/"+ noHashSearchList)

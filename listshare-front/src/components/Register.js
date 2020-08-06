@@ -17,7 +17,7 @@ const Register = () => {
             <div className="register-container">
                 <h2>Register</h2>
                 <Formik
-                initialValues={{ email:'abc@example.com', password:'', passwordConfirmation:'' }}
+                initialValues={{ email:'', password:'', passwordConfirmation:'' }}
                 validationSchema={registerSchema}
                 onSubmit={(values, { setSubmitting }) => {                    
                     axios.post(global.BACKEND + "/api/users/register", {
