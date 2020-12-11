@@ -39,7 +39,6 @@ const AddItemModal = ({ show, listAccessCode, listPassword, setIsAddModalActive,
                     </Form>
                 )}
                 </Formik>
-          {/* <button onClick={handleClose}>close</button> */}
         </section>
       </div>
     );

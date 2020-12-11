@@ -5,12 +5,15 @@ import PasswordModal from './Modals/PasswordModal';
 import Item from './Item';
 import AddItemModal from './Modals/AddItemModal';
 import { FaStar, FaRegStar } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector, useStore } from 'react-redux';
+import * as SignalR from '@aspnet/signalr';
+import {hub_join_group} from '../actions/listHubActions';
 
 
 
 const ItemList = (props) => {
     let doesListExist = true;
+    let dispatch = useDispatch();
     const listAccessCode = props.match.params.listCode;
     const history = useHistory();
     const [isModalActive, setIsModalActive] = useState(null);
@@ -20,6 +23,7 @@ const ItemList = (props) => {
     const [listName, setListName] = useState("no name");
     const [isStarred, setIsStarred] = useState(false);
     const isLogged = useSelector(state => state.logged_in);
+    const hubChange = useSelector(state => state.listHub)
     
     const getItemList = () =>{
         if(isModalActive == null){
@@ -59,6 +63,16 @@ const ItemList = (props) => {
         )
     }
 
+    useEffect(() =>{
+        //if modal has been closed and password has be put in correctly
+        //or the list has been starred then modal gets closed
+        //IF MODAL CLOSED
+        //THEN add a person to the websocket group that gets notifications about this list
+        if(!isModalActive || isModalActive == null){
+            dispatch(hub_join_group("listGroup_"+listAccessCode));
+        }
+    },[isModalActive])
+
     useEffect(()=>{
         try{
             let myStorageLists = window.localStorage.getItem('RecentItemLists').split(',');
@@ -96,6 +110,23 @@ const ItemList = (props) => {
         });
     },[isModalActive])
 
+    useEffect(() => {
+        setTimeout(() => {
+            axios.get(global.BACKEND+ "/api/ItemLists/", {
+                headers:{
+                    "Authorization": "Bearer " + localStorage.getItem("AccessToken")
+                },
+                params:{
+                    "AccessCode": "#" + listAccessCode,
+                    "ListPassword": listPassword
+                }
+            }).then((response) => {
+                setListItems({});
+                setListItems(response.data.items);
+            })
+        }, 50);
+        
+    },[hubChange])
 
     const getItems= () => {
         let items = [];
@@ -144,7 +175,6 @@ const ItemList = (props) => {
     }
 
     const changeStar = () => {
-        //setIsStarred(!isStarred);
         if(!isStarred)
             axios.post(global.BACKEND + "/api/users/starred", {
                 "AccessCode" : "#"+listAccessCode

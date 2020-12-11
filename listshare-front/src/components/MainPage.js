@@ -3,13 +3,19 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import CreateListModal from './Modals/CreateListModal';
+import * as SignalR from '@aspnet/signalr';
+import { useDispatch, useSelector } from 'react-redux';
+import { hub_connect, hub_send_message } from '../actions/listHubActions';
+
 
 
 const Nav = () => {
     let history = useHistory();
+    let dispatch = useDispatch();
     const [isCreateModalActive, setIsCreateModalActive] = useState(false);
     const [starredLists, setStarredLists] = useState([]);
     const [isDataInvalid, setIsDataInvalid] = useState(false);
+    const listHubConnection = useSelector(state => state.listHubConnection);
     const getRecentLists = () => {
         let myStorageLists = [];
         let recentLists = [];
@@ -30,7 +36,6 @@ const Nav = () => {
     }
 
     const getStarredLists = () => {
-        //var starredLists = []
         var lists = [];
         for(var list of starredLists){
             const historyLink = list.accessCode;
@@ -51,6 +56,11 @@ const Nav = () => {
         )
     }
 
+    const testSignalr = () =>{
+        var value = document.querySelector(".mainpage-search-input").value;
+        dispatch(hub_send_message(value));
+    }
+
     useEffect(()=>{
         axios.get(global.BACKEND + "/api/users/starred", {
             headers:{
@@ -66,7 +76,6 @@ const Nav = () => {
     return(
         <>
             <div className="mainpage-container">
-                {/* <h1>Hello!</h1> */}
                 <h2>Search for a list</h2>
                 <Formik
                 initialValues={{ searchList:'#POK3LAPU' }}
@@ -108,6 +117,7 @@ const Nav = () => {
                 </div>
                 {getStarredLists()}
             </div>
+            <button onClick={()=>{testSignalr()}}>XXX</button>
             <CreateListModal
             show={isCreateModalActive}
             setIsCreateModalActive={setIsCreateModalActive}

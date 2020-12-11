@@ -16,15 +16,16 @@ const Item = ({name, deletePayload, setListItems, listItems, isDone}) => {
         axios.put(global.BACKEND + "/api/items", {
             ...deletePayload,
             IsDone: done
+        },{
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("AccessToken")
+            }
         })
     }
 
     return(
         <>
         <div className="item-container">
-            {/* <div className="item">
-                <h3>{name || "no name"}</h3>
-            </div> */}
             <label class="container">{name || "no name"}
                 <input type="checkbox" defaultChecked={isDone} 
                 onChange={(e)=>{checkBox(e.currentTarget.checked)}}/>

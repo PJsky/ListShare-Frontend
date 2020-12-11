@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import {Link, useHistory} from 'react-router-dom';
+import {Link, useHistory, useLocation} from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { user_log_out } from '../actions/userActions';
 import { FaBars } from 'react-icons/fa';
+import { hub_quit_group} from '../actions/listHubActions';
 
 
 const Nav = () => {
@@ -10,6 +11,17 @@ const Nav = () => {
     const history = useHistory();
     const logged = useSelector(state => state.logged_in);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [lastGroup,setLastGroup] = useState("");
+
+    let location = useLocation();
+    useEffect(()=>{
+      let shortPath = location.pathname.slice(1); 
+      if(shortPath != "register" && shortPath != "login" && shortPath.length >1){
+          setLastGroup("listGroup_" + location.pathname.slice(1));
+      }else{
+        dispatch(hub_quit_group(lastGroup));
+      }
+    },[location])
     
     const getNav = () =>{
         if(!logged)return(

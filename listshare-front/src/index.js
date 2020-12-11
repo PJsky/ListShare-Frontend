@@ -6,13 +6,15 @@ import { Provider } from 'react-redux';
 import thunk from "redux-thunk";
 import * as serviceWorker from './serviceWorker';
 import combinedReducer from './reducers/combinedReducer';
+import {websocketMiddleware} from './middleware/websocketMiddleware';
 
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const middlewares = [thunk, websocketMiddleware];
 
 const store = createStore(
   combinedReducer,
-  composeEnhancer(applyMiddleware(thunk))
+  composeEnhancer(applyMiddleware(...middlewares)),
   );
 
 ReactDOM.render(

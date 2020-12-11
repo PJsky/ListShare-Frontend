@@ -29,7 +29,6 @@ const Register = () => {
                         history.push("/");
                     }).catch( (error) => {
                         try{
-                            console.log(error.response)
                             if(error.response.data)
                                 setRegisterError(error.response.data[0].toUpperCase() + error.response.data.slice(1));
                             else
@@ -50,12 +49,10 @@ const Register = () => {
                         <label for="passwordConfirmation" className="register-password-label">Password confirmation:</label>
                         <Field type="password" name="passwordConfirmation" className="register-password-input" id="passwordConfirmation"/>
                     <ErrorMessage name="passwordConfirmation" component="div" />
-                    {/* <Link to="/content"> */}
                         <button type="submit" disabled={isSubmitting} className="register-button">
                             Submit
                         </button>
                 <div className={isDataInvalid?"form-error":"hidden-class"}>{registerError}</div>
-                    {/* </Link> */}
                     </Form>
                 )}
                 </Formik>

@@ -52,12 +52,10 @@ const Login = () => {
                         <label for="password" className="login-password-label">Password:</label>
                         <Field type="password" name="password" className="login-password-input" id="password"/>
                     <ErrorMessage name="password" component="div" />
-                    {/* <Link to="/content"> */}
                         <button type="submit" disabled={isSubmitting} className="login-button">
                             Submit
                         </button>
                     <div className={isDataInvalid?"form-error":"hidden-class"}>Invalid login data</div>
-                    {/* </Link> */}
                     </Form>
                     </>
                 )}
